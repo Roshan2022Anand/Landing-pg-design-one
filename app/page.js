@@ -5,6 +5,7 @@ import { FaArrowUp } from "react-icons/fa";
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { checkBaseUrl } from '@/lib/server';
 
 const page = () => {
   gsap.registerPlugin(ScrollTrigger)
@@ -33,18 +34,22 @@ const page = () => {
       scrollTrigger: {
         trigger: '.service-section',
         scroller: "body",
-        start: "top 60%",
-        end: "top 50%",
+        start: "top 70%",
+        end: "top 60%",
         scrub: 3,
       }
     })
     let fromLeftAni = { x: -300, opacity: 0 }
     let fromRightAni = { x: 300, opacity: 0 }
-    serviceTl.from("#card-1",fromLeftAni,'first-sec')
+    serviceTl.from("#card-1", fromLeftAni, 'first-sec')
     serviceTl.from("#card-2", fromRightAni, 'first-sec')
     serviceTl.from("#card-3", fromLeftAni, 'sec-sec')
     serviceTl.from("#card-4", fromRightAni, 'sec-sec')
   })
+
+  const baseUrl = checkBaseUrl();
+  console.log(baseUrl)
+
   return (
     <>
       <header className='navbar flex justify-between items-center'>
@@ -56,7 +61,7 @@ const page = () => {
           <button className='nav-list border-[var(--text-color)] border-2'>Request & Quote</button>
         </nav>
       </header>
-      <main>
+      <main >
         {/* hero section */}
         <section className='flex justify-between items-center h-[65vh]'>
           <article className='hero-anim w-[45%] flex flex-col gap-2'>

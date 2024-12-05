@@ -22,7 +22,6 @@ body {
     color: var(--text-color);
     padding: 10px 5% 0;
 }
-
 main {
     margin-top: 50px;
     display: flex;
